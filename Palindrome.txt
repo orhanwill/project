@@ -1,0 +1,40 @@
+using System;
+
+namespace Palindrome_Detector
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the sentence: ");
+            string words = Console.ReadLine();
+            string[] wordsspl = words.Split();
+
+            
+            string reverse =string.Empty;
+            for(int j=wordsspl.Length-1; j>=0; j--)
+            {
+                reverse = reverse + wordsspl[j];
+                Console.WriteLine(reverse);
+
+            }
+            for (int j = wordsspl.Length - 1; j >= 0; j--)
+            {
+                char[] cahru = new char[wordsspl.Length];
+                for(int r = 0; r>=wordsspl[
+
+            }
+            string alpha=" ";
+            for (int k =0; k >= wordsspl.Length; k++)
+            {
+                if(reverse.Length ==wordsspl.Length)
+                {
+                    alpha = wordsspl[k];
+                    
+                }
+                Console.WriteLine(alpha + "jjrfr" );
+                alpha = " ";
+            }
+        }
+    }
+}
