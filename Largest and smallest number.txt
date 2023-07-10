@@ -1,0 +1,37 @@
+using System;
+
+namespace Largest_and_smallest_nmb
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the  sentence: ");
+            string array1 = Console.ReadLine(); // Taking an array from user
+            string[] wordcomb = array1.Split(' ');// Spliting it into words wrt to spaces.
+
+            int large = wordcomb[0].Length; //Largest legth value to large
+            int small = wordcomb[0].Length;
+            string largestw = wordcomb[0];//Largest string value to largestw
+            string smallestw = wordcomb[0];
+            for (int i = 1; i <= wordcomb.Length - 1; i++)
+            {
+                int length = wordcomb[i].Length;
+                if (length > large)
+                {
+                    largestw = wordcomb[i]; //Assigning largest nmb to large
+                    large = length;
+                }
+                if (length < small)
+                {
+                    smallestw = wordcomb[i];
+                    small = length;
+
+                }
+            }
+            Console.WriteLine("Longest word present is:   " + largestw+ " And largest words has "+ large+ " letters.");
+            Console.WriteLine("Shortest word present is:   " + smallestw +" And smallest words has " + small + " letters.");
+            Console.ReadKey();
+        }
+    }
+}

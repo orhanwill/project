@@ -1,0 +1,30 @@
+using System;
+
+namespace Vowel_and_consonent
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the sentence : ");
+            string first = Console.ReadLine();
+            
+            
+            int vowel = 0, consn= 0, length;
+            length = first.Length;
+            for ( int i=0; i< first.Length; i++)
+            {
+                if (first[i] == 'a' || first[i] == 'e' || first[i] == 'i' || first[i] == 'o' || first[i] == 'u' || first[i] == 'A' || first[i] == 'E' || first[i] == 'I' || first[i] == 'O' || first[i] == 'U')
+                {
+                    vowel++;
+                }
+                else if (first[i] >= 'a' && first[i] <= 'z' ||  first[i] >= 'A' && first[i] <= 'Z')
+                {
+                    consn++;
+                }
+            }
+            Console.WriteLine("Vowels count is " + vowel+ ".");
+            Console.WriteLine("Vowels count is " + consn + ".");
+        }
+    }
+}
