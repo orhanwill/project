@@ -1,0 +1,142 @@
+Console.WriteLine("Enter the sentence : ");
+            string first = Console.ReadLine();
+            Console.Write("\n");
+            string[] wordsearch = first.Split(' ');
+            int k = 0;
+            for (int i = 0; i < wordsearch.Length; i++)
+            {
+                int cond = 1;
+                for (int j = i+1; j < wordsearch.Length; j++)
+                {
+                    
+                    
+                    
+                    if (wordsearch[i] == wordsearch[j])// Condition to compare two words
+                    {
+                        cond = cond + 1; //how many times is the word there
+                        
+                    }
+                    if(cond==2)
+                    {
+                        k = j;
+                        i  = k-1;
+                    }
+                   
+                    
+                    
+                }
+                
+                Console.WriteLine(" Frequency of " + wordsearch[i] + " word is " + cond + " times.");
+                
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+FA backup
+using System;
+
+namespace FA_backup
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the sentence : ");
+            string first = Console.ReadLine();
+            Console.Write("\n");
+            string[] wordsearch = first.Split(' ');
+            int length = wordsearch.Length;
+            
+            int[] cond = new int[length];
+            for(int i=0;i<length; i++)
+            {
+                if (cond[i] == -1)
+                {
+                    continue;
+                }
+                
+                
+                    cond[i] = 1;
+                
+                for(int j=i+1; j<length; j++)
+                {
+                    if (string.Equals(wordsearch[i], wordsearch[j], StringComparison.OrdinalIgnoreCase))
+                    {
+                        cond[i] ++;
+                        cond[i] = -1;
+                    }
+                    Console.WriteLine(wordsearch[i] + " came " + cond[i] + "times");
+                }
+            }
+
+
+        }
+    }
+}
+&&&&&&&&&&&&&&&&&&&&&&&&&&&
+using System;
+
+namespace Project_Q_no_2
+{
+    class Program
+    {
+        static Random random = new Random();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the  Number: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the sentence: ");
+            string words = "";
+            string alpha = Console.ReadLine();
+            string[] alphasplt = alpha.Split(' ');
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < alphasplt.Length; j++)
+                {
+                    int b = random.Next(0, alphasplt.Length);
+                    words = words + alphasplt[b] + " ";
+                }
+                Console.WriteLine(words);
+                words = " ";
+            }
+        }
+    }
+}
+&&&&&&&&&&&&*&*&*&&&&&&&&
+using System;
+
+namespace Project_Q_no_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the sentence: ");
+            string words = Console.ReadLine();
+            string[] wordsspl = words.Split();
+            int count = wordsspl.Length;
+            for (int i = 0; i < wordsspl.Length; i++)
+            {
+                bool Ispalin = true;
+                string alpha = wordsspl[i];
+                for (int j = 0; j < alpha.Length; j++)
+                {
+                    if (alpha[j] != alpha[alpha.Length - 1 - j])
+                    {
+                        Ispalin = false;
+                    }
+
+                }
+                if (Ispalin == true)
+                {
+                    Console.WriteLine(alpha + " :  is a palindrome.");
+                }
+                if (Ispalin == false)
+                {
+                    Console.WriteLine(alpha + " : is not a palindrome.");
+                }
+
+            }
+        }
+    }
+}
