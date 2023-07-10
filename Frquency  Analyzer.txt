@@ -1,0 +1,33 @@
+using System;
+
+namespace Frequency_analyzer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int cond = 0;
+            Console.WriteLine("Enter the sentence : ");
+            string first = Console.ReadLine();
+            Console.Write("\n");
+            string[] wordsearch = first.Split(' ');
+            string word = " ";
+            word = wordsearch[0];
+            for (int i = 0; i < wordsearch.Length; i++)
+            {
+                if (word == wordsearch[i])// Condition to compare two words
+                {
+
+
+                    cond = cond + 1; //how many times is the word there.
+                    word = wordsearch[i];
+                }
+                else
+                {
+                    word = wordsearch[i];
+                }
+                Console.WriteLine(" Frequency of " + i + " word is " + cond + "times.");
+            }
+        }
+    }
+}
