@@ -1,0 +1,193 @@
+using System;
+
+namespace Project_full_file
+{
+    class Program
+    {
+        static Random random = new Random();
+        //Part No 1 code.
+        static void Printfrequency(string sentence)
+        {
+            string[] words1 = sentence.Split(' ');
+            int length = words1.Length; 
+
+            int[] cond = new int[words1.Length]; 
+            for (int i = 0; i < words1.Length; i++)
+            {
+                if (cond[i] == -1) // No entry is present in the variable[i]. 
+                {
+                    continue;
+                }
+
+
+                cond[i] = 1;
+
+                for (int j = i + 1; j < words1.Length; j++)
+                {
+                    if (string.Equals(words1[i], words1[j], StringComparison.OrdinalIgnoreCase))
+                        //string to compare the words from full array to each at a time.
+                    {
+                        cond[i] = cond[i] + 1;// Counter when any of word matches
+                        cond[j] = -1;
+                    }
+
+                }
+                Console.WriteLine(words1[i] + " came " + cond[i] + " times");
+            }
+        }
+
+
+        static void Nsequencewords(int a ,string sentence)
+        {
+            
+            string words = "";
+            
+            string[] words1 = sentence.Split(' ');
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < words1.Length; j++)
+                {
+                    int b = random.Next(0, words1.Length);
+                    words = words + words1[b] + " ";
+                }
+                Console.WriteLine(words);
+                words = " ";
+            }
+            Console.ReadKey();
+        }
+
+
+        static void Longestandshortest ( string sentence)
+        {
+            string[] words1 = sentence.Split(' ');
+            int large = words1[0].Length; //Largest legth value to large
+            int small = words1[0].Length;
+            string largestw = words1[0];//Largest string value to largestw
+            string smallestw = words1[0];
+            for (int i = 1; i <= words1.Length - 1; i++)
+            {
+                int length = words1[i].Length;
+                if (length > large)
+                {
+                    largestw = words1[i]; //Assigning largest nmb to large
+                    large = length;
+                }
+                if (length < small)
+                {
+                    smallestw = words1[i];
+                    small = length;
+
+                }
+            }
+            Console.WriteLine("Longest word present is:   " + largestw + " : And largest words has " + large + " letters.");
+            Console.WriteLine("Shortest word present is:   " + smallestw + " : And smallest words has " + small + " letters.");
+            Console.ReadKey();
+        }
+
+        static void Wordsearch(string input,string sentence)
+        {
+            string[] words1 = sentence.Split(' ');
+            int cond = 0;
+            Console.WriteLine();
+            for (int i = 0; i < words1.Length; i++)
+            {
+                if (input == words1[i])// Condition to compare two words
+                {
+
+
+                    cond = cond + 1; //how many times is the word there.
+
+                }
+
+
+
+
+            }
+            Console.Write(input + " is present \n" + cond + " time(s)");
+            Console.ReadKey();
+
+        }
+
+        static void Palindrome( string sentence)
+        {
+            string[] words1 = sentence.Split();
+            int count = words1.Length;
+            for (int i = 0; i < words1.Length; i++)
+            {
+                bool Ispalin = true;
+                string alpha = words1[i];
+                for (int j = 0; j < alpha.Length; j++)
+                {
+                    if (alpha[j] != alpha[alpha.Length - 1 - j])
+                    {
+                        Ispalin = false;
+                    }
+
+                }
+                if (Ispalin == true)
+                {
+                    Console.WriteLine(alpha + " :  is a palindrome.");
+                }
+                if (Ispalin == false)
+                {
+                    Console.WriteLine(alpha + " : is not a palindrome.");
+                }
+
+            }
+        }
+
+        static void VowCons(string sentence)
+        {
+            
+            int vowel = 0, consn = 0, length;
+            length = sentence.Length;
+            for (int i = 0; i < sentence.Length; i++)
+            {
+                if (sentence[i] == 'a' || sentence[i] == 'e' || sentence[i] == 'i' || sentence[i] == 'o' || sentence[i] == 'u' || sentence[i] == 'A' || sentence[i] == 'E' || sentence[i] == 'I' || sentence[i] == 'O' || sentence[i] == 'U')
+                {
+                    vowel++;
+                }
+                else if (sentence[i] >= 'a' && sentence[i] <= 'z' || sentence[i] >= 'A' && sentence[i] <= 'Z')
+                {
+                    consn++;
+                }
+            }
+            Console.WriteLine("Vowels count is " + vowel + ".");
+            Console.WriteLine("Vowels count is " + consn + ".");
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the sentence: ");
+            string sentence = Console.ReadLine();
+            //Calling the part no 1.
+            Printfrequency(sentence);
+            //calling part no 2
+            Console.WriteLine();
+            Console.WriteLine("The N sequence part: ");
+            Console.WriteLine("Enter the  Number: ");
+            int a = int.Parse(Console.ReadLine());
+            Nsequencewords(a, sentence);
+            //calling part no 3
+            Console.WriteLine();
+            Console.WriteLine("The Longest and Shortest part: ");
+            
+            Longestandshortest(sentence);
+            //calling the part 4
+            Console.WriteLine();
+            Console.WriteLine("The Word Search part: ");
+            Console.WriteLine("Enter the word to find : ");
+            string input = Console.ReadLine();
+            Wordsearch(input, sentence);
+            //calling the part 5.
+            Console.WriteLine();
+            Console.WriteLine("The Palindrome part: ");
+            Console.WriteLine();
+            Palindrome(sentence);
+            //calling the part no 6
+            Console.WriteLine();
+            Console.WriteLine("The Vowel and consonents part: ");
+            VowCons(sentence);
+
+        }
+    }
+}
